@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajiado Solar Community Hub - Reset Password</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+        .gradient-bg {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .custom-shape-divider-bottom-1629646847 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .custom-shape-divider-bottom-1629646847 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .custom-shape-divider-bottom-1629646847 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8" style="background-image: url('https://images.unsplash.com/photo-1508615039623-a25605d2b022?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;">
+    <div class="container mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden max-w-4xl animate__animated animate__fadeIn">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Image Section -->
+            <div class="w-full lg:w-1/2 bg-cover bg-center relative gradient-bg" style="min-height: 400px;">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center p-8 z-10">
+                    <h1 class="text-white text-4xl font-bold text-center mb-4 animate__animated animate__fadeInDown">Reset Your Password</h1>
+                    <p class="text-white text-center mb-8 animate__animated animate__fadeInUp animate__delay-1s">Secure your account with a new password</p>
+                    <div class="w-32 h-32 bg-white rounded-full p-4 shadow-lg float glass-effect">
+                        <img src="https://www.svgrepo.com/show/418949/lock-open-password.svg" alt="Reset Password" class="w-full h-full">
+                    </div>
+                </div>
+                <!-- <div class="custom-shape-divider-bottom-1629646847">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                    </svg>
+                </div> -->
+            </div>
+            
+            <!-- Reset Password Form Section -->
+            <div class="w-full lg:w-1/2 p-8 bg-gray-50">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeInRight">Reset Your Password</h2>
+                <form id="resetPasswordForm" class="space-y-6">
+                    <div class="animate__animated animate__fadeInRight animate__delay-1s">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class='bx bx-envelope text-gray-400'></i>
+                            </div>
+                            <input type="email" id="email" name="email" required class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md transition duration-300 ease-in-out" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <!-- <div class="animate__animated animate__fadeInRight animate__delay-2s">
+                        <label for="newPassword" class="block text-sm font-medium text-gray-700">New Password</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class='bx bx-lock-alt text-gray-400'></i>
+                            </div>
+                            <input type="password" id="newPassword" name="newPassword" required class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md transition duration-300 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class='bx bx-show text-gray-400 cursor-pointer' id="toggleNewPassword"></i>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="animate__animated animate__fadeInRight animate__delay-3s">
+                        <label for="confirmNewPassword" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class='bx bx-lock-alt text-gray-400'></i>
+                            </div>
+                            <input type="password" id="confirmNewPassword" name="confirmNewPassword" required class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md transition duration-300 ease-in-out">
+                        </div>
+                    </div> -->
+                    <div class="animate__animated animate__fadeInUp animate__delay-4s">
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                            Reset Password
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-6 animate__animated animate__fadeIn animate__delay-5s">
+                    <p class="text-center text-sm text-gray-600">
+                        Remember your password?
+                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-300 ease-in-out">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/reset.js"></script>
+</body>
+</html>
